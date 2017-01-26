@@ -18,7 +18,7 @@ DOWNLOAD LINK: https://github.com/blacklight447/Darkfox-Launcher/releases
 ALTERNATIVE DOWNLOAD LINK: http://www.mediafire.com/file/x2td3bw1qhja4t1/Darkfox+Beta+2.2.3.zip
 
 
-WWHAT US DARKFOX LAUNCHER?
+WHAT US DARKFOX LAUNCHER?
 Darkfox Launcher is a platform which is used to connect diffrent software packages in one easy-to-use-package.
 
 
