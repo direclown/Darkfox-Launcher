@@ -30,7 +30,7 @@ Darkfox Launcher is a platform which is used to connect different software packa
 
 HOW DOES DARKFOX LAUNCHER WORK?
 
-Darkfox Launcher works by first changing the default profile of the Firefox Portable software.
+Darkfox Launcher works by first changing the default profile of the Firefox Portable software and
 with that, changing the default network configuration. 
 Once this phase is done, Darkfox will procceed by launching the Darknet proxy software to make the connection the the Darknet chosen by the user.
 When completed, Firefox Portable will boot to the default startpage of that specfic Darknet.
