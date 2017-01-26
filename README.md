@@ -42,6 +42,7 @@ For example: if you were to install a plugin like No-Script, then it will still 
 
 
 
+
 SOFTWARE LICENSES:
 
 Portable Apps Launcher: GPL
