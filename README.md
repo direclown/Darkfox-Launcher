@@ -24,13 +24,13 @@ ALTERNATIVE DOWNLOAD LINK: http://www.mediafire.com/file/x2td3bw1qhja4t1/Darkfox
 
 WHAT IS DARKFOX LAUNCHER?
 
-Darkfox Launcher is a platform which is used to connect diffrent software packages in one easy-to-use-package.
+Darkfox Launcher is a platform which is used to connect different software packages in one easy-to-use-package.
 
 
 
 HOW DOES DARKFOX LAUNCHER WORK?
 
-Darkfox Launcher works by first changing the default profile of the Firefox Portable software,
+Darkfox Launcher works by first changing the default profile of the Firefox Portable software.
 with that, changing the default network configuration. 
 Once this phase is done, Darkfox will procceed by launching the Darknet proxy software to make the connection the the Darknet chosen by the user.
 When completed, Firefox Portable will boot to the default startpage of that specfic Darknet.
