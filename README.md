@@ -3,7 +3,7 @@ Darkfox Launcher README:
 This software is written by Blacklight447; it is free to distribute and modify.                                   
 It is made for the people who want a comfortable way to access the Darknet,                                       
 without needing to change their configuration every time when switching to another network.                       
-Darkfox Launcher is portable software, this means that no installation is required.
+Darkfox Launcher is portable software; this means that no installation is required.
 
 Software included in the Darkfox package: are the portable Firefox version by Portableapps.com,                  
 and the proxy software from the Tor project, Invisible internet project, and the Freenet project.                 
