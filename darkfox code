@@ -1,0 +1,447 @@
+@echo off
+title Darkfox Launcher
+cd configuration
+color 0a
+mode con:cols=300 lines=38 
+:Start
+cls
+set input=""
+Echo: 
+echo  ÛÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄWELKOM TO DARKFOX LAUNCHERÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÛ    
+Echo:                                                                               
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»    
+echo  ºPRESS 1, 2, 3 OR 4 to select your darknet configuration, and 6 to EXIT.º    
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹     
+echo  º                                                                       º     
+echo  º 1 - Launch Tor.                       4 - Launch Default.             º    
+echo  º 2 - Launch I2p.                       5 - Documentation               º    
+echo  º 3 - Launch Freenet.                   6 - Exit the Darkfox Launcher.  º    
+echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼     
+Echo:                                                                                                                                                              
+for /f %%A in ('"prompt $H& for %%B in (2) do rem"') do set BS=%%A
+set /p input="%bs% Launch option: "
+if /i "%Input%"=="1" (goto Tor)
+if /i "%Input%"=="2" (goto I2p)
+if /i "%Input%"=="3" (goto Freenet)
+if /i "%Input%"=="4" (goto Default)
+if /i "%input%"=="5" (goto Documentation)
+if /i "%input%"=="6" (goto Exit)
+if /i not "%Input%"=="y" echo: 
+echo  No configuration available with this name, try something else.
+echo:
+echo  Press any key to continue.
+pause >nul
+Echo:
+goto Start
+
+
+:Tor
+copy /Y FirefoxPortabletor.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching Tor configuration
+start /b FirefoxPortable.exe  
+cd "tor proxy"
+cd tor
+echo:
+echo  Tor is starting, this may take a while.
+start /b tor.exe
+cd ..
+cd ..
+Echo:
+timeout 7 >nul
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:I2p
+copy /Y FirefoxPortablei2p.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching I2p configuration
+start /b FirefoxPortable.exe
+cd "i2p proxy"
+echo:
+echo  I2p is starting, this may take a while.
+start /b i2p.exe
+cd ..
+echo:
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:Freenet
+copy /Y FirefoxPortablefreenet.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching Freenet configuration
+start /b FirefoxPortable.exe
+cd "freenet proxy"
+echo:
+echo  To use Freenet you will need to right click the Freenet icon in the system tray, and click "start Freenet".
+start /b FreenetTray.exe
+cd ..
+Echo:
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:Default
+copy /Y FirefoxPortabledefault.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching Default configuration
+start /b FirefoxPortable
+echo:
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:Documentation
+set input=""
+cls
+Echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºWelcome to the Documentation page, type one of the options below to continueº    
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+echo  º                                                                            º   
+echo  º1 - About the software.               4 - User warning                      º    
+echo  º2 - Darknet info.                     5 - License                           º    
+echo  º3 - Bug's                             6 - Back to the start screen.         º    
+echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+set /p Input="%bs% Go to: "
+if /i "%input%"=="1" (goto About)
+if /i "%input%"=="2" (goto Darknet)
+if /i "%input%"=="3" (goto Bug)
+if /i "%input%"=="4" (goto Warning)
+if /i "%input%"=="5" (goto License)
+if /i "%input%"=="6" (goto Start)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+Echo:
+echo  Press any key to continue.
+pause >nul 
+goto Documentation
+
+:About
+cls
+Echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºInformation about the Darkfox and its writer                                                                      º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+echo  º                                                                                                                  º
+echo  ºThis software is written by Blacklight447; it is free to distribute and modify.                                   º 
+echo  ºIt is made for the people who want a comfortable way to access the darknet,                                       º
+echo  ºwithout needing to change their configuration every time when switching to another network.                       º
+echo  ºSoftware included in the Darkfox package: are the portable Firefox version by Portableapps.com,                   º
+echo  ºand the proxy software from the Tor project, Invisible internet project, and the Freenet project.                 º
+echo  ºThe abovementioned proxy software and FirefoxPortable software are used and published under their own Licenses.   º
+echo  ºThis package is only meant to put all the software in one-easy-to-use package.                                    º
+echo  ºIf you would like to contact me, for tips or questions, then you can mail me at Blacklight447@protonmail.com.     º 
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Documentation page.
+pause >nul
+goto Documentation
+
+
+:Darknet
+set input=""
+cls
+Echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºWelcome to the darknet page, type one of the options below to continueº
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+echo  º                                                                      º       
+echo  º1 - Tor                               3 - Freenet                     º       
+echo  º2 - I2p                               4 - Back to Documentation.      º      
+echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+set /p Input="%bs% Got to: "
+if /i "%input%"=="1" (goto TorI)
+if /i "%input%"=="2" (goto I2pI)
+if /i "%input%"=="3" (goto FreenetI)
+if /i "%input%"=="4" (goto Documentation)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+Echo:
+echo  Press any key to continue.
+pause >nul
+goto darknet
+
+:TorI
+cls
+Echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºInformation about the Tor anonymity network.                                                                      º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºTor is free software for enabling anonymous communication.                                                        º
+echo  ºThe name is derived from an acronym for the original software project name "The Onion Router"                     º
+echo  ºTor directs Internet traffic through a free, worldwide, volunteer network,                                        º
+echo  ºconsisting of more than seven thousand relays to conceal a user's location,                                       º
+echo  ºand usage from anyone conducting network surveillance or traffic analysis.                                        º
+echo  º                                                                                                                  º
+echo  ºUsing Tor makes it more difficult for Internet activity to be traced back to the user:                            º
+echo  ºthis includes "visits to Web sites, online posts, instant messages, and other communication forms".               º
+echo  ºTor's use is intended to protect the personal privacy of users,                                                   º
+echo  ºas well as their freedom and ability to conduct confidential communication,                                       º
+echo  ºby keeping their Internet activities from being monitored.                                                        º
+echo  º                                                                                                                  º
+echo  ºOnion routing is implemented by encryption in the application layer of a communication protocol stack,            º
+echo  ºnested like the layers of an onion.                                                                               º
+echo  ºTor encrypts the data, including the destination IP address,                                                      º
+echo  ºmultiple times and sends it through a virtual circuit comprising successive, randomly selected Tor relays.        º
+Echo  º                                                                                                                  º
+echo  ºEach relay decrypts a layer of encryption to reveal only the next relay in the circuit,                           º
+echo  ºin order to pass the remaining encrypted data on to it.                                                           º
+echo  ºThe final relay decrypts the innermost layer of encryption and sends the original data to its destination,        º
+echo  ºwithout revealing, or even knowing, the source IP address.                                                        º
+echo  ºBecause the routing of the communication is partly concealed at every hop in the Tor circuit,                     º
+echo  ºthis method eliminates any single point at which the communicating peers can be determined,                       º
+echo  ºthrough network surveillance that relies upon knowing its source and destination.                                 º
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Darknet page.
+pause >nul
+Echo:
+goto Darknet
+
+
+:I2pI
+cls
+Echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºInformation about the I2p anonymity network.                                                                      º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºThe Invisible Internet Project (I2P) is an overlay network,                                                       º
+echo  ºand darknet that allows applications to send messages to each other pseudonymously and securely.                  º
+echo  ºUses include anonymous Web surfing, chatting, blogging and file transfers.                                        º
+echo  ºThe software that implements this layer is called an I2P router and a computer running I2P is called an I2P node. º 
+echo  ºThe software is free and open source and is published under multiple licenses.                                    º
+echo  ºThe name I2P is derived from Invisible Internet Project, which, in pseudo-mathematical notation,                  º
+echo  ºis represented as I2P.                                                                                            º
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Darknet page.
+pause >nul
+Echo:
+goto Darknet
+
+:FreenetI
+cls
+Echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºInformation about the Freenet anonymity network.                                                                  º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºFreenet is a peer-to-peer platform for censorship-resistant communication.                                        º
+echo  ºIt uses a decentralized distributed data store to keep and deliver information,                                   º
+echo  ºand has a suite of free software for publishing and communicating on the Web without fear of censorship.          º
+Echo  º                                                                                                                  º 
+echo  ºBoth Freenet and some of its associated tools were originally designed by Ian Clarke,                             º
+echo  ºwho defined Freenet's goal as providing freedom of speech on the Internet with strong anonymity protection.       º
+echo  ºThe distributed data store of Freenet is used by many third-party programs and plugins,                           º
+echo  ºto provide microblogging and media sharing,                                                                       º
+echo  ºanonymous and decentralised version tracking,                                                                     º
+echo  ºblogging, a generic web of trust for decentralized spam resistance,                                               º
+echo  ºShoeshop for using Freenet over Sneakernet, and many more.                                                        º
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Darknet page.
+pause >nul
+echo:
+goto Darknet
+
+
+
+
+:Bug
+set input=""
+cls
+Echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºWelcome to the bugs page. type one of the options below to continue. º    
+echo  ºThis page is dedicated to inform you about the currently known bug's.º
+echo  ºIf you happen to know a fix or report a bug, then please mail me at: º
+echo  º                     Blacklight447@protonmail.com                    º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+echo  º                                                                     º   
+echo  º1 - Multi darknet bug. STATUS=OPEN     4 - Bug 4.   STATUS=UNKNOWN   º    
+echo  º2 - Enter bug.         STATUS=FIXED    5 - Bug 5.   STATUS=UNKNOWN   º    
+echo  º3 - Bug 3.             STATUS=UNKNOWN  6 - Back to the documentation.º    
+echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+set /p Input="%bs% Go to: "
+if /i "%input%"=="1" (goto Multi)
+if /i "%input%"=="2" (goto Enter)
+if /i "%input%"=="3" (goto Empty)
+if /i "%input%"=="4" (goto Empty)
+if /i "%input%"=="5" (goto Empty)
+if /i "%input%"=="6" (goto Documentation)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+Echo:
+echo  Press any key to continue.
+pause >nul
+goto bug
+
+
+:Multi
+cls
+echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºInformation about the multi Darknet bug.          STATUS=OPEN                                                     º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºThe multi Darknet bug is a problem which prevent's Firefox portable from starting with                            º
+echo  ºmultiple windows with a different network configurations.                                                         º
+Echo  º                                                                                                                  º
+echo  ºFor example, if one were to launch Firefox with its Tor configuration,                                            º
+echo  ºand were to start it again with I2p (while keeping the Firefox window with Tor open).                             º
+echo  ºThen Firefox Portable will just start up again with it's Tor configuration instead of I2p.                        º
+Echo  º                                                                                                                  º
+echo  ºTo connect to another network, close the window with the other configuration,                                     º
+echo  ºand then start Firefox the right network configuration.                                                           º
+echo  ºIf Firefox is still not starting correctly: check if Firefox portable is still running in the task manager.       º
+echo  ºIf it's still running, end the task and start Firefox again.                                                      º
+echo  ºA fix for this should be ready soon.                                                                              º
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Bugs page.
+pause >nul
+Echo:
+goto Bug
+
+:Enter
+cls
+echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºInformation about the Enter bug.                  STATUS=FIXED                                                    º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºThe enter problem is a bug which repeats the last given user input when the enter key is pressed.                 º
+Echo  º                                                                                                                  º
+echo  ºIf one for example were to launch Tor and later press the enter key,                                              º
+echo  ºthen it will repeat the action of starting tor.                                                                   º
+echo  ºPressing the enter key will keep resulting in starting Tor again until the user give's another input,             º
+echo  ºfor example: if the user were to now decide to go to the documentation page,                                      º
+echo  ºpressing the enter key will now result in going to the documentation page.                                        º
+echo  ºThis bug is present with all user inputs.                                                                         º
+Echo  º                                                                                                                  º
+echo  ºThe bug will not hinder the software in any way,                                                                  º
+echo  ºand is nothing more than a small input glitch in the user interface.                                              º
+echo  ºThis bug was fixed in version 2.2 .                                                                               º
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Bugs page.
+pause >nul
+echo:
+goto Bug
+
+:Warning
+cls
+echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºWarning about the usage of this software                                                                          º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºThe software combination is made with fair anonimity, but not total anonymity in mind.                            º
+echo  ºthe usage of it is intended for casual browsing for the Darkweb and good privacy,                                 º
+echo  ºso do not go full Edward  Snowden or drug overlord on it,                                                         º
+echo  ºsince its effectiveness cannot be Guaranteed.                                                                     º
+echo  ºFor stronger anonimty, please download the Tor browser bundle,                                                    º
+echo  ºand set it on the highest security mode with Javascript disabled.                                                 º
+echo  ºThe developer of this software is not responsible for any problems that may arise from using this software.       º
+echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Documentation page.
+pause >nul
+echo:
+goto Documentation
+
+:License
+cls
+echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºThe software license                                                                                              º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºMIT License                                                                                                       º
+echo  º                                                                                                                  º
+echo  ºCopyright (c) 2017 Darkfox Launcher                                                                               º 
+echo  º                                                                                                                  º
+echo  ºPermission is hereby granted, free of charge,                                                                     º
+echo  ºto any person obtaining a copy of this software and associated documentation files (the "Software"),              º
+echo  ºto deal in the Software without restriction, including without limitation the rights to use,                      º
+echo  ºcopy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,                         º
+echo  ºand to permit persons to whom the Software is furnished to do so,                                                 º
+echo  ºsubject to the following conditions:                                                                              º
+echo  º                                                                                                                  º
+echo  º                                                                                                                  º 
+echo  ºThe above copyright notice and this permission notice shall be included in all                                    º
+echo  ºcopies or substantial portions of the Software.                                                                   º
+echo  º                                                                                                                  º
+echo  º                                                                                                                  º
+echo  ºTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,                                                   º
+echo  ºEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,                               º
+echo  ºFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.                                                             º
+echo  ºIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,                                       º
+echo  ºDAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,                                                     º
+echo  ºTORT OR OTHERWISE, ARISING FROM,                                                                                  º
+echo  ºOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                           º
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Documentation page.
+pause >nul
+Echo:
+goto Documentation
+
+:Empty
+cls
+echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºThis bug Desciption is empty                      STATUS=UNKNOWN                                                  º
+echo  ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+Echo  º                                                                                                                  º
+echo  ºIt seems like there isn't any new bug discovered so far.                                                          º
+echo  ºThink you found a bug and want to report it?                                                                      º
+echo  ºMail me at: Blacklight447@protonmail.com                                                                          º
+Echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo:
+echo  Press any key to return to the Bugs page.
+pause >nul
+Echo:
+goto Bug
+
+
+:exit
+set input=""
+cls
+echo:
+echo  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo  ºDo you really want to shutdown Darkfox? PRESS y to EXIT or n to CANCELº
+echo  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+Echo:
+set /p Input="%bs% Are you sure?:"
+if /i "%input%"=="y" (goto ExitYes)
+if /i "%input%"=="n" (goto start)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+pause
+Echo:
+goto exit
+
+:ExitYes
+echo:
+echo  Darkfox is shutting down. 
+echo:  
+timeout 5 >nul
+echo:
+exit
