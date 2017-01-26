@@ -1,0 +1,447 @@
+@echo off
+title Darkfox Launcher
+cd configuration
+color 0a
+mode con:cols=300 lines=38 
+:Start
+cls
+set input=""
+Echo: 
+echo  ÛฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤWELKOM TO DARKFOX LAUNCHERฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤÛ    
+Echo:                                                                               
+echo  ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป    
+echo  บPRESS 1, 2, 3 OR 4 to select your darknet configuration, and 6 to EXIT.บ    
+echo  ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน     
+echo  บ                                                                       บ     
+echo  บ 1 - Launch Tor.                       4 - Launch Default.             บ    
+echo  บ 2 - Launch I2p.                       5 - Documentation               บ    
+echo  บ 3 - Launch Freenet.                   6 - Exit the Darkfox Launcher.  บ    
+echo  ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ     
+Echo:                                                                                                                                                              
+for /f %%A in ('"prompt $H& for %%B in (2) do rem"') do set BS=%%A
+set /p input="%bs% Launch option: "
+if /i "%Input%"=="1" (goto Tor)
+if /i "%Input%"=="2" (goto I2p)
+if /i "%Input%"=="3" (goto Freenet)
+if /i "%Input%"=="4" (goto Default)
+if /i "%input%"=="5" (goto Documentation)
+if /i "%input%"=="6" (goto Exit)
+if /i not "%Input%"=="y" echo: 
+echo  No configuration available with this name, try something else.
+echo:
+echo  Press any key to continue.
+pause >nul
+Echo:
+goto Start
+
+
+:Tor
+copy /Y FirefoxPortabletor.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching Tor configuration
+start /b FirefoxPortable.exe  
+cd "tor proxy"
+cd tor
+echo:
+echo  Tor is starting, this may take a while.
+start /b tor.exe
+cd ..
+cd ..
+Echo:
+timeout 7 >nul
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:I2p
+copy /Y FirefoxPortablei2p.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching I2p configuration
+start /b FirefoxPortable.exe
+cd "i2p proxy"
+echo:
+echo  I2p is starting, this may take a while.
+start /b i2p.exe
+cd ..
+echo:
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:Freenet
+copy /Y FirefoxPortablefreenet.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching Freenet configuration
+start /b FirefoxPortable.exe
+cd "freenet proxy"
+echo:
+echo  To use Freenet you will need to right click the Freenet icon in the system tray, and click "start Freenet".
+start /b FreenetTray.exe
+cd ..
+Echo:
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:Default
+copy /Y FirefoxPortabledefault.ini FirefoxPortable.ini >nul
+echo:
+echo  Launching Default configuration
+start /b FirefoxPortable
+echo:
+echo  Press any key to continue.
+pause >nul
+goto Start 
+
+
+
+:Documentation
+set input=""
+cls
+Echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บWelcome to the Documentation page, type one of the options below to continueบ    
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+echo  บ                                                                            บ   
+echo  บ1 - About the software.               4 - User warning                      บ    
+echo  บ2 - Darknet info.                     5 - License                           บ    
+echo  บ3 - Bug's                             6 - Back to the start screen.         บ    
+echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+set /p Input="%bs% Go to: "
+if /i "%input%"=="1" (goto About)
+if /i "%input%"=="2" (goto Darknet)
+if /i "%input%"=="3" (goto Bug)
+if /i "%input%"=="4" (goto Warning)
+if /i "%input%"=="5" (goto License)
+if /i "%input%"=="6" (goto Start)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+Echo:
+echo  Press any key to continue.
+pause >nul 
+goto Documentation
+
+:About
+cls
+Echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บInformation about the Darkfox and its writer                                                                      บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+echo  บ                                                                                                                  บ
+echo  บThis software is written by Blacklight447; it is free to distribute and modify.                                   บ 
+echo  บIt is made for the people who want a comfortable way to access the darknet,                                       บ
+echo  บwithout needing to change their configuration every time when switching to another network.                       บ
+echo  บSoftware included in the Darkfox package: are the portable Firefox version by Portableapps.com,                   บ
+echo  บand the proxy software from the Tor project, Invisible internet project, and the Freenet project.                 บ
+echo  บThe abovementioned proxy software and FirefoxPortable software are used and published under their own Licenses.   บ
+echo  บThis package is only meant to put all the software in one-easy-to-use package.                                    บ
+echo  บIf you would like to contact me, for tips or questions, then you can mail me at Blacklight447@protonmail.com.     บ 
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Documentation page.
+pause >nul
+goto Documentation
+
+
+:Darknet
+set input=""
+cls
+Echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บWelcome to the darknet page, type one of the options below to continueบ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+echo  บ                                                                      บ       
+echo  บ1 - Tor                               3 - Freenet                     บ       
+echo  บ2 - I2p                               4 - Back to Documentation.      บ      
+echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+set /p Input="%bs% Got to: "
+if /i "%input%"=="1" (goto TorI)
+if /i "%input%"=="2" (goto I2pI)
+if /i "%input%"=="3" (goto FreenetI)
+if /i "%input%"=="4" (goto Documentation)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+Echo:
+echo  Press any key to continue.
+pause >nul
+goto darknet
+
+:TorI
+cls
+Echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บInformation about the Tor anonymity network.                                                                      บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บTor is free software for enabling anonymous communication.                                                        บ
+echo  บThe name is derived from an acronym for the original software project name "The Onion Router"                     บ
+echo  บTor directs Internet traffic through a free, worldwide, volunteer network,                                        บ
+echo  บconsisting of more than seven thousand relays to conceal a user's location,                                       บ
+echo  บand usage from anyone conducting network surveillance or traffic analysis.                                        บ
+echo  บ                                                                                                                  บ
+echo  บUsing Tor makes it more difficult for Internet activity to be traced back to the user:                            บ
+echo  บthis includes "visits to Web sites, online posts, instant messages, and other communication forms".               บ
+echo  บTor's use is intended to protect the personal privacy of users,                                                   บ
+echo  บas well as their freedom and ability to conduct confidential communication,                                       บ
+echo  บby keeping their Internet activities from being monitored.                                                        บ
+echo  บ                                                                                                                  บ
+echo  บOnion routing is implemented by encryption in the application layer of a communication protocol stack,            บ
+echo  บnested like the layers of an onion.                                                                               บ
+echo  บTor encrypts the data, including the destination IP address,                                                      บ
+echo  บmultiple times and sends it through a virtual circuit comprising successive, randomly selected Tor relays.        บ
+Echo  บ                                                                                                                  บ
+echo  บEach relay decrypts a layer of encryption to reveal only the next relay in the circuit,                           บ
+echo  บin order to pass the remaining encrypted data on to it.                                                           บ
+echo  บThe final relay decrypts the innermost layer of encryption and sends the original data to its destination,        บ
+echo  บwithout revealing, or even knowing, the source IP address.                                                        บ
+echo  บBecause the routing of the communication is partly concealed at every hop in the Tor circuit,                     บ
+echo  บthis method eliminates any single point at which the communicating peers can be determined,                       บ
+echo  บthrough network surveillance that relies upon knowing its source and destination.                                 บ
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Darknet page.
+pause >nul
+Echo:
+goto Darknet
+
+
+:I2pI
+cls
+Echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บInformation about the I2p anonymity network.                                                                      บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บThe Invisible Internet Project (I2P) is an overlay network,                                                       บ
+echo  บand darknet that allows applications to send messages to each other pseudonymously and securely.                  บ
+echo  บUses include anonymous Web surfing, chatting, blogging and file transfers.                                        บ
+echo  บThe software that implements this layer is called an I2P router and a computer running I2P is called an I2P node. บ 
+echo  บThe software is free and open source and is published under multiple licenses.                                    บ
+echo  บThe name I2P is derived from Invisible Internet Project, which, in pseudo-mathematical notation,                  บ
+echo  บis represented as I2P.                                                                                            บ
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Darknet page.
+pause >nul
+Echo:
+goto Darknet
+
+:FreenetI
+cls
+Echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บInformation about the Freenet anonymity network.                                                                  บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บFreenet is a peer-to-peer platform for censorship-resistant communication.                                        บ
+echo  บIt uses a decentralized distributed data store to keep and deliver information,                                   บ
+echo  บand has a suite of free software for publishing and communicating on the Web without fear of censorship.          บ
+Echo  บ                                                                                                                  บ 
+echo  บBoth Freenet and some of its associated tools were originally designed by Ian Clarke,                             บ
+echo  บwho defined Freenet's goal as providing freedom of speech on the Internet with strong anonymity protection.       บ
+echo  บThe distributed data store of Freenet is used by many third-party programs and plugins,                           บ
+echo  บto provide microblogging and media sharing,                                                                       บ
+echo  บanonymous and decentralised version tracking,                                                                     บ
+echo  บblogging, a generic web of trust for decentralized spam resistance,                                               บ
+echo  บShoeshop for using Freenet over Sneakernet, and many more.                                                        บ
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Darknet page.
+pause >nul
+echo:
+goto Darknet
+
+
+
+
+:Bug
+set input=""
+cls
+Echo:
+echo  ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บWelcome to the bugs page. type one of the options below to continue. บ    
+echo  บThis page is dedicated to inform you about the currently known bug's.บ
+echo  บIf you happen to know a fix or report a bug, then please mail me at: บ
+echo  บ                     Blacklight447@protonmail.com                    บ
+echo  ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+echo  บ                                                                     บ   
+echo  บ1 - Multi darknet bug. STATUS=OPEN     4 - Bug 4.   STATUS=UNKNOWN   บ    
+echo  บ2 - Enter bug.         STATUS=FIXED    5 - Bug 5.   STATUS=UNKNOWN   บ    
+echo  บ3 - Bug 3.             STATUS=UNKNOWN  6 - Back to the documentation.บ    
+echo  ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+set /p Input="%bs% Go to: "
+if /i "%input%"=="1" (goto Multi)
+if /i "%input%"=="2" (goto Enter)
+if /i "%input%"=="3" (goto Empty)
+if /i "%input%"=="4" (goto Empty)
+if /i "%input%"=="5" (goto Empty)
+if /i "%input%"=="6" (goto Documentation)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+Echo:
+echo  Press any key to continue.
+pause >nul
+goto bug
+
+
+:Multi
+cls
+echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บInformation about the multi Darknet bug.          STATUS=OPEN                                                     บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บThe multi Darknet bug is a problem which prevent's Firefox portable from starting with                            บ
+echo  บmultiple windows with a different network configurations.                                                         บ
+Echo  บ                                                                                                                  บ
+echo  บFor example, if one were to launch Firefox with its Tor configuration,                                            บ
+echo  บand were to start it again with I2p (while keeping the Firefox window with Tor open).                             บ
+echo  บThen Firefox Portable will just start up again with it's Tor configuration instead of I2p.                        บ
+Echo  บ                                                                                                                  บ
+echo  บTo connect to another network, close the window with the other configuration,                                     บ
+echo  บand then start Firefox the right network configuration.                                                           บ
+echo  บIf Firefox is still not starting correctly: check if Firefox portable is still running in the task manager.       บ
+echo  บIf it's still running, end the task and start Firefox again.                                                      บ
+echo  บA fix for this should be ready soon.                                                                              บ
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Bugs page.
+pause >nul
+Echo:
+goto Bug
+
+:Enter
+cls
+echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บInformation about the Enter bug.                  STATUS=FIXED                                                    บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บThe enter problem is a bug which repeats the last given user input when the enter key is pressed.                 บ
+Echo  บ                                                                                                                  บ
+echo  บIf one for example were to launch Tor and later press the enter key,                                              บ
+echo  บthen it will repeat the action of starting tor.                                                                   บ
+echo  บPressing the enter key will keep resulting in starting Tor again until the user give's another input,             บ
+echo  บfor example: if the user were to now decide to go to the documentation page,                                      บ
+echo  บpressing the enter key will now result in going to the documentation page.                                        บ
+echo  บThis bug is present with all user inputs.                                                                         บ
+Echo  บ                                                                                                                  บ
+echo  บThe bug will not hinder the software in any way,                                                                  บ
+echo  บand is nothing more than a small input glitch in the user interface.                                              บ
+echo  บThis bug was fixed in version 2.2 .                                                                               บ
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Bugs page.
+pause >nul
+echo:
+goto Bug
+
+:Warning
+cls
+echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บWarning about the usage of this software                                                                          บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บThe software combination is made with fair anonimity, but not total anonymity in mind.                            บ
+echo  บthe usage of it is intended for casual browsing for the Darkweb and good privacy,                                 บ
+echo  บso do not go full Edward  Snowden or drug overlord on it,                                                         บ
+echo  บsince its effectiveness cannot be Guaranteed.                                                                     บ
+echo  บFor stronger anonimty, please download the Tor browser bundle,                                                    บ
+echo  บand set it on the highest security mode with Javascript disabled.                                                 บ
+echo  บThe developer of this software is not responsible for any problems that may arise from using this software.       บ
+echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Documentation page.
+pause >nul
+echo:
+goto Documentation
+
+:License
+cls
+echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บThe software license                                                                                              บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บMIT License                                                                                                       บ
+echo  บ                                                                                                                  บ
+echo  บCopyright (c) 2017 Darkfox Launcher                                                                               บ 
+echo  บ                                                                                                                  บ
+echo  บPermission is hereby granted, free of charge,                                                                     บ
+echo  บto any person obtaining a copy of this software and associated documentation files (the "Software"),              บ
+echo  บto deal in the Software without restriction, including without limitation the rights to use,                      บ
+echo  บcopy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,                         บ
+echo  บand to permit persons to whom the Software is furnished to do so,                                                 บ
+echo  บsubject to the following conditions:                                                                              บ
+echo  บ                                                                                                                  บ
+echo  บ                                                                                                                  บ 
+echo  บThe above copyright notice and this permission notice shall be included in all                                    บ
+echo  บcopies or substantial portions of the Software.                                                                   บ
+echo  บ                                                                                                                  บ
+echo  บ                                                                                                                  บ
+echo  บTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,                                                   บ
+echo  บEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,                               บ
+echo  บFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.                                                             บ
+echo  บIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,                                       บ
+echo  บDAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,                                                     บ
+echo  บTORT OR OTHERWISE, ARISING FROM,                                                                                  บ
+echo  บOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                           บ
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Documentation page.
+pause >nul
+Echo:
+goto Documentation
+
+:Empty
+cls
+echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บThis bug Desciption is empty                      STATUS=UNKNOWN                                                  บ
+echo  ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+Echo  บ                                                                                                                  บ
+echo  บIt seems like there isn't any new bug discovered so far.                                                          บ
+echo  บThink you found a bug and want to report it?                                                                      บ
+echo  บMail me at: Blacklight447@protonmail.com                                                                          บ
+Echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+echo:
+echo  Press any key to return to the Bugs page.
+pause >nul
+Echo:
+goto Bug
+
+
+:exit
+set input=""
+cls
+echo:
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บDo you really want to shutdown Darkfox? PRESS y to EXIT or n to CANCELบ
+echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+Echo:
+set /p Input="%bs% Are you sure?:"
+if /i "%input%"=="y" (goto ExitYes)
+if /i "%input%"=="n" (goto start)
+if /i not "%Input%"=="y" echo: 
+echo  This is not an available option.
+pause
+Echo:
+goto exit
+
+:ExitYes
+echo:
+echo  Darkfox is shutting down. 
+echo:  
+timeout 5 >nul
+echo:
+exit
