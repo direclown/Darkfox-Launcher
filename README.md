@@ -10,7 +10,7 @@ Darkfox Launcher is portable software; this means that no installation is requir
 
 Software included in the Darkfox package: the portable Firefox version by Portableapps.com,                  
 the proxy software from the Tor project, Invisible internet project, and the Freenet project.                 
-The abovementioned proxy software and FirefoxPortable software are used and published under their own Licenses.   
+The above mentioned proxy software and FirefoxPortable software are used and published under their own Licenses.   
 This package is only meant to put all the software in one-easy-to-use package.                                    
 If you would like to contact me, for tips or questions, then you can mail me at Blacklight447@protonmail.com.
 
