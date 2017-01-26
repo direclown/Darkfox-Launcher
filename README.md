@@ -32,7 +32,7 @@ HOW DOES DARKFOX LAUNCHER WORK?
 
 Darkfox Launcher works by first changing the default profile of the Firefox Portable software and
 with that, changing the default network configuration. 
-Once this phase is done, Darkfox will proceed by launching the Darknet proxy software to make the connection the the Darknet chosen by the user.
+Once this phase is done, Darkfox will proceed by launching the Darknet proxy software to make the connection to the Darknet chosen by the user.
 When completed, Firefox Portable will boot to the default startpage of that specific Darknet.
 
 
@@ -40,7 +40,7 @@ When completed, Firefox Portable will boot to the default startpage of that spec
 WHY CHOOSE DARKFOX LAUNCHER?
 
 Darkfox Launcher provides a way to access the Darknet on any Windows computer, without needing administrator privileges.
-This means that if you were have to quickly message someone over whatever darknet, you will be able to without needing to install anything. Another feature of darkfox is that it saves your history in the way that you can boot it up with your own modified version.
+This means that if you were have to quickly message someone over whatever darknet, you will be able to without needing to install anything. Another feature of darkfox is that it saves your history in a way that you can boot it up with your own modified version.
 For example: if you were to install a plugin like No-Script, then it will still be there the next time you boot up Darkfox.
 
 
