@@ -10,7 +10,7 @@ Darkfox Launcher is portable software; this means that no installation is requir
 
 Software included in the Darkfox package: the portable Firefox version by Portableapps.com,                  
 the proxy software from the Tor project, Invisible internet project, and the Freenet project.                 
-The above mentioned proxy software and FirefoxPortable software are used and published under their own Licenses.   
+The above mentioned proxy software and FirefoxPortable software are used and published under their own licenses.   
 This package is only meant to put all the software in one-easy-to-use package.                                    
 If you would like to contact me, for tips or questions, then you can mail me at Blacklight447@protonmail.com.
 
@@ -32,7 +32,7 @@ HOW DOES DARKFOX LAUNCHER WORK?
 
 Darkfox Launcher works by first changing the default profile of the Firefox Portable software and
 with that, changing the default network configuration. 
-Once this phase is done, Darkfox will procceed by launching the Darknet proxy software to make the connection the the Darknet chosen by the user.
+Once this phase is done, Darkfox will proceed by launching the Darknet proxy software to make the connection the the Darknet chosen by the user.
 When completed, Firefox Portable will boot to the default startpage of that specific Darknet.
 
 
