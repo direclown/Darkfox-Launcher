@@ -1,5 +1,8 @@
 Darkfox Launcher README:
 
+(NOTE: Darkfox Launcher is currently in Open Beta, bugs and issues are to be expected,
+please post and found bugs in the issues tab or mail it to blacklight447@protonmail.com )
+
 This software is written by Blacklight447; it is free to distribute and modify.                                   
 It is made for the people who want a comfortable way to access the Darknet,                                       
 without needing to change their configuration every time when switching to another network.                       
