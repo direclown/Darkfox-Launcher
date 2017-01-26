@@ -12,6 +12,6 @@ If you would like to contact me, for tips or questions, then you can mail me at 
 
 
 
+DOWNLOAD LINK: https://github.com/blacklight447/Darkfox-Launcher/releases
 
-
-DOWNLOAD LINK: http://www.mediafire.com/file/x2td3bw1qhja4t1/Darkfox+Beta+2.2.3.zip
+ALTERNATIVE DOWNLOAD LINK: http://www.mediafire.com/file/x2td3bw1qhja4t1/Darkfox+Beta+2.2.3.zip
